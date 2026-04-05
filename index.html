@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- Left -->
+        <div class="nav-left">
+            <img src="menu.svg" alt="menu" class="hamburger invert">
+            <img src="logo.svg" alt="logo" class="logo invert">
+            <img src="home.svg" alt="home" class="home invert">
+
+            <div class="search-box">
+                <img src="search.svg" alt="searchbar" class="search-icon invert">
+                <input type="text" placeholder="What do you want to play?">
+                <img src="brouse.svg" alt="brouse" class="brouse invert">
+            </div>
+        </div>
+
+        <!-- Right -->
+        <div class="nav-right">
+            <a href="#">Premium</a>
+            <a href="#">Support</a>
+            <a href="#">Download</a>
+
+            <div class="divider"></div>
+
+            <a href="#">Install App</a>
+            <a href="#">Sign up</a>
+
+            <button class="login-btn">Log in</button>
+        </div>
+    </div>
+
+    <div class="container flex">
+
+
+        <div class="left">
+            <div class="left-nev">
+                
+                <p style="font-weight: bold;">Your Library</p>
+
+                <button class="create-btn">
+                    <img src="create.svg" alt="create" class="create-icon invert">
+                    Create
+                </button>
+            </div>
+            <div class="songList">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="footer">
+                <div>
+                    <a href="https://www.spotify.com/in-en/legal/">Legal</a>
+                </div>
+
+                <div>
+                    <a href="https://www.spotify.com/in-en/safetyandprivacy/">Safety &amp; Privacy Center</a>
+                </div>
+
+                <div>
+                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a>
+                </div>
+
+                <div>
+                    <a href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a>
+                </div>
+
+                <div>
+                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a>
+                </div>
+
+                <div>
+                    <a href="https://www.spotify.com/in-en/accessibility/">Accessibility</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+            <div class="section-header">
+                <button class="header-title">Trending songs</button>
+                <button class="show-all-btn">Show all</button>
+            </div>
+            <div class="music-card flex">
+                <div class="card" data-folder="aditya gadhvi">
+                    <div class="card-img">
+                        <img src="https://i.scdn.co/image/ab67616d00001e02d7bbba84212f3be35630cc0b" alt="">
+                        <button class="play-btn">▶</button>
+                    </div>
+
+                    <h2>Gujarati</h2>
+                    <p>By Spotify</p>
+                </div>
+                <div class="card " data-folder="Dhurandhar">
+                    <div class="card-img">
+                        <img src="https://i.scdn.co/image/ab67616d00001e02c53e5adf9f81693d62f98019" alt="Dhurander">
+                        <button class="play-btn">▶</button>
+                    </div>
+
+                    <h2>Dhurander songs</h2>
+                    <p>By Shashwat Sachdev</p>
+                </div>
+                <div class="card" data-folder="Hanuman Chalisha">
+                    <div class="card-img">
+                        <img src="https://i.scdn.co/image/ab67616d00001e025182ea98b2ea623977917597" alt="Hanuman Chalisha">
+                        <button class="play-btn">▶</button>
+                    </div>
+
+                    <h2>Hanuman Chalisha</h2>
+                    <p>By Hariharan,Lalit Sen,Chander</p>
+                </div>
+                <div class="card" data-folder="Bhojpuri">
+                    <div class="card-img">
+                        <img src="https://i.scdn.co/image/ab67616d00001e022454d773515cb1efb4df2e82"
+                            alt="Tu Lagawelu Jab Lipastic">
+                        <button class="play-btn">▶</button>
+                    </div>
+
+                    <h2>Bhojpuri</h2>
+                    <p>By Spotify</p>
+                </div>
+                <div class="card" data-folder="Honey Singh">
+                    <div class="card-img">
+                        <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84771a5ba66e1a0ffa5da1d823" alt="Honey Singh">
+                        <button class="play-btn">▶</button>
+                    </div>
+
+                    <h2>Honey Singh</h2>
+                    <p>By Spotify</p>
+                </div>
+                
+                
+
+
+            </div>
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="progress"></div>
+                    <div class="circle"></div>
+                    
+                </div>
+                <div class="abovebar">
+                    <div class="songinfo"></div>
+                    <div class="song-button invert">
+                        <img id="previous" src="Previous.svg" alt="">
+                        <img id="play" src="pause.svg" alt="">
+                        <img id="next" src="next.svg" alt="">
+                    </div>
+                    <div class="songtime"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <div class="overlay"></div>
+</body>
+
+</html>
