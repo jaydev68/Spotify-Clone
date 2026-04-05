@@ -3,6 +3,90 @@ console.log('Lets write JavaScript')
 let currentSong = new Audio();
 let songs;
 let currFolder;
+let allSongs = {
+    "Hanuman Chalisha": [
+        {
+            name: "Hanuman Chalisha",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430657/Shree_Hanuman_Chalisa_-_Hariharan_ssdoyf.mp3"
+        }
+    ],
+
+    "Dhurandhar": [
+        {
+            name: "Ishq Jalakar - Shashwat Sachdev",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430648/Ishq_Jalakar_-_Shashwat_Sachdev_spuksu.mp3"
+        },
+        {
+            name: "Jaiye Sajana - Shashwat Sachdev",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430646/Jaiye_Sajana_-_Shashwat_Sachdev_bmyuvd.mp3"
+        },
+        {
+            name:"Aari Aari - Shashwat Sachdev",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430645/Aari_Aari_-_Shashwat_Sachdev_qtuvdu.mp3"
+        },
+        {
+            name:"Dhurandhar - Title TrackFrom - Shashwat Sachdev",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430644/Dhurandhar_-_Title_Track__From__Dhurandhar___-_Shashwat_Sachdev_zbndbu.mp3"
+        }
+    ],
+
+    "Bhojpuri": [
+        {
+            name: "Tu Lagawelu Jab Lipastic - Pawan Singh",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430643/Tu_Lagawelu_Jab_Lipastic_-_Pawan_Singh_hnhv8e.mp3"
+        },
+        {
+            name:"Lolly Pop Lageli - Pawan Singh",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430641/Lolly_Pop_Lageli_-_Pawan_Singh_ccusxn.mp3"
+        },
+        {
+            name:"Sorry Sorry - From Bhojpuriya Raja - Pawan Singh",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430639/Sorry_Sorry_-_From__Bhojpuriya_Raja__-_Pawan_Singh_p3bstp.mp3"
+        }
+    ],
+
+    "Aditya Gadhvi": [
+        {
+            name: "Dwarika No Naath - Jaysinh Gadhavi",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430648/Dwarika_No_Naath_-_Jaysinh_Gadhavi_q26liq.mp3"
+        },
+        {
+            name:"Pa Pa Pagli - Sonu Nigam",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430644/Pa_Pa_Pagli_-_Sonu_Nigam_gv4fss.mp3"
+        },
+        {
+            name:"Naagar Nandji Na Laal - Aditya Gadhvi",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430640/Naagar_Nandji_Na_Laal_-_Aditya_Gadhvi_sixao0.mp3"
+        },
+        {
+            name:"Khalasi Coke Studio Bharat - Aditya Gadhvi",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430637/Khalasi_Coke_Studio_Bharat_-_Aditya_Gadhvi_ufnfij.mp3"
+        },
+        {
+            name:"Madhro Darudo - Jignesh Barot",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430636/Madhro_Darudo_-_Jignesh_Barot_pqlems.mp3"
+        }
+    ],
+
+    "Honey Singh": [
+        {
+            name: "Desi Kalakaar - Yo Yo Honey Singh",
+            url: "https://res.cloudinary.com/djhea8d6c/video/upload/v1775430644/Desi_Kalakaar_-_Yo_Yo_Honey_Singh_gz42rp.mp3"
+        },
+        {
+            name:"Millionaire - Yo Yo Honey Singh",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430636/Millionaire_-_Yo_Yo_Honey_Singh_rsewej.mp3"
+        },
+        {
+            name:"Blue Eyes - Yo Yo Honey Singh",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430634/Blue_Eyes_-_Yo_Yo_Honey_Singh_z1yin2.mp3"
+        },
+        {
+            name:"Dope Shope - Yo Yo Honey Singh",
+            url:"https://res.cloudinary.com/djhea8d6c/video/upload/v1775430633/Dope_Shope_-_Yo_Yo_Honey_Singh_lr7ll7.mp3"
+        }
+    ]
+};
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) return "00:00";
@@ -17,7 +101,8 @@ function secondsToMinutesSeconds(seconds) {
 }
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`/songs/${folder}/`)
+    return allSongs[folder] || [];
+
     let response = await a.text();
     console.log(response)
 
@@ -37,8 +122,6 @@ async function getSongs(folder) {
                 .split(/[/\\]/)   // 🔥 handles BOTH / and \
                 .pop()
                 .replace(".mp3", "");
-
-
             songs.push({ name, url });
 
         }
@@ -136,25 +219,25 @@ async function main() {
     // }
 
 
-  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
 
-    const hamburger = document.querySelector(".hamburger");
-    const sidebar = document.querySelector(".left");
-    const overlay = document.querySelector(".overlay");
+        const hamburger = document.querySelector(".hamburger");
+        const sidebar = document.querySelector(".left");
+        const overlay = document.querySelector(".overlay");
 
-    if (hamburger && sidebar && overlay) {
-        hamburger.addEventListener("click", () => {
-            sidebar.classList.add("active");
-            overlay.classList.add("active");
-        });
+        if (hamburger && sidebar && overlay) {
+            hamburger.addEventListener("click", () => {
+                sidebar.classList.add("active");
+                overlay.classList.add("active");
+            });
 
-        overlay.addEventListener("click", () => {
-            sidebar.classList.remove("active");
-            overlay.classList.remove("active");
-        });
-    }
+            overlay.addEventListener("click", () => {
+                sidebar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+        }
 
-});
+    });
 
 
 
